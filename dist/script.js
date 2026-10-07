@@ -10,7 +10,8 @@ const extraWork=[
   {src:'assets/work/lyndon-redemption.jpg',type:'photography'},
   {src:'assets/work/lyndon-vawter-cucumber.jpg',type:'photography'},
   {src:'assets/work/lyndon-barista.jpg',type:'photography'},
-  ...Array.from({length:12},(_,i)=>({src:`assets/work-expanded/lyndon-${String(i+1).padStart(2,'0')}.jpg`,type:'photography'}))
+  ...Array.from({length:12},(_,i)=>({src:`assets/work-expanded/lyndon-${String(i+1).padStart(2,'0')}.jpg`,type:'photography'})),
+  ...Array.from({length:84},(_,i)=>({src:`assets/cameron/cameron-${String(i+1).padStart(3,'0')}.webp`,type:'photography'}))
 ];
 extraWork.forEach((item,index)=>{
   const figure=document.createElement('figure');
