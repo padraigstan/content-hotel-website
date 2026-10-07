@@ -1,3 +1,2 @@
-.codex/
-.vercel/
-content-hotel-website/
+.vercel
+.env*
