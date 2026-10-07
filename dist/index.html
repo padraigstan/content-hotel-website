@@ -159,6 +159,24 @@
     </section>
   </main>
 
+  <dialog class="viewing-suite" id="viewing-suite" aria-labelledby="viewing-suite-title">
+    <div class="suite-shell">
+      <header class="suite-header">
+        <div><span>PRIVATE VIEWING</span><strong id="viewing-suite-title">THE VIEWING SUITE</strong></div>
+        <button type="button" class="suite-close" data-suite-close>CHECK OUT <span aria-hidden="true">×</span></button>
+      </header>
+      <div class="suite-stage">
+        <button type="button" class="suite-nav suite-prev" data-suite-prev aria-label="View previous image"><span aria-hidden="true">‹</span><small>PREVIOUS ROOM</small></button>
+        <img id="suite-image" src="" alt="">
+        <button type="button" class="suite-nav suite-next" data-suite-next aria-label="View next image"><small>NEXT ROOM</small><span aria-hidden="true">›</span></button>
+      </div>
+      <div class="suite-footer">
+        <div><span id="suite-number">ROOM 01</span><strong id="suite-caption">THE CONTENT HOTEL</strong></div>
+        <span id="suite-count">01 / 01</span>
+      </div>
+    </div>
+  </dialog>
+
   <footer><img src="assets/logo-landscape-light.svg" alt="The Content Hotel"><p>Senior strategy. Senior creative. Exceptional content.</p><span>© 2026 THE CONTENT HOTEL</span></footer>
   <script src="script.js"></script>
 </body>

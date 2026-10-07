@@ -29,6 +29,11 @@ extraWork.forEach((item,index)=>{
 const buttons=[...document.querySelectorAll('.filters button')];
 const projects=[...document.querySelectorAll('.project')];
 const reel=document.querySelector('.reel');
+projects.forEach(project=>{
+  project.tabIndex=0;
+  project.setAttribute('role','button');
+  project.setAttribute('aria-label',`Open ${project.querySelector('img')?.alt||'image'} in The Viewing Suite`);
+});
 buttons.forEach(button=>button.addEventListener('click',()=>{
   buttons.forEach(b=>b.classList.remove('active')); button.classList.add('active');
   const filter=button.dataset.filter;
@@ -40,6 +45,62 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
   if(entry.isIntersecting){entry.target.animate([{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'none'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'});observer.unobserve(entry.target)}
 }),{threshold:.12});
 document.querySelectorAll('.room-card,.project,.stay-options article').forEach(el=>observer.observe(el));
+
+const viewingSuite=document.querySelector('#viewing-suite');
+const suiteImage=document.querySelector('#suite-image');
+const suiteNumber=document.querySelector('#suite-number');
+const suiteCaption=document.querySelector('#suite-caption');
+const suiteCount=document.querySelector('#suite-count');
+let suiteImages=[];
+let suiteIndex=0;
+let suiteOpener=null;
+let touchStartX=0;
+const suiteLabel=figure=>figure.querySelector('figcaption b')?.textContent||'THE CONTENT HOTEL';
+const showSuiteImage=index=>{
+  if(!suiteImages.length) return;
+  suiteIndex=(index+suiteImages.length)%suiteImages.length;
+  const figure=suiteImages[suiteIndex];
+  const source=figure.querySelector('img');
+  suiteImage.src=source.currentSrc||source.src;
+  suiteImage.alt=source.alt;
+  suiteNumber.textContent=`ROOM ${String(suiteIndex+1).padStart(2,'0')}`;
+  suiteCaption.textContent=suiteLabel(figure);
+  suiteCount.textContent=`${String(suiteIndex+1).padStart(2,'0')} / ${String(suiteImages.length).padStart(2,'0')}`;
+};
+const openSuite=figure=>{
+  suiteImages=projects.filter(project=>!project.classList.contains('hidden'));
+  suiteIndex=suiteImages.indexOf(figure);
+  if(suiteIndex<0) return;
+  suiteOpener=figure;
+  showSuiteImage(suiteIndex);
+  viewingSuite.showModal();
+  document.body.classList.add('viewer-open');
+};
+const closeSuite=()=>viewingSuite.close();
+projects.forEach(project=>{
+  project.addEventListener('click',()=>openSuite(project));
+  project.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();openSuite(project)}
+  });
+});
+viewingSuite.querySelector('[data-suite-prev]').addEventListener('click',()=>showSuiteImage(suiteIndex-1));
+viewingSuite.querySelector('[data-suite-next]').addEventListener('click',()=>showSuiteImage(suiteIndex+1));
+viewingSuite.querySelector('[data-suite-close]').addEventListener('click',closeSuite);
+viewingSuite.addEventListener('click',event=>{if(event.target===viewingSuite) closeSuite()});
+viewingSuite.addEventListener('close',()=>{
+  document.body.classList.remove('viewer-open');
+  suiteImage.removeAttribute('src');
+  suiteOpener?.focus({preventScroll:true});
+});
+viewingSuite.addEventListener('keydown',event=>{
+  if(event.key==='ArrowLeft') showSuiteImage(suiteIndex-1);
+  if(event.key==='ArrowRight') showSuiteImage(suiteIndex+1);
+});
+viewingSuite.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0].clientX},{passive:true});
+viewingSuite.addEventListener('touchend',event=>{
+  const distance=event.changedTouches[0].clientX-touchStartX;
+  if(Math.abs(distance)>55) showSuiteImage(suiteIndex+(distance<0?1:-1));
+},{passive:true});
 
 const enquiryForm=document.querySelector('#enquiry-form');
 const formStatus=document.querySelector('#form-status');
