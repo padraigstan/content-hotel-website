@@ -104,3 +104,8 @@ body.viewer-open{overflow:hidden}
 
 /* Balanced 21-brand wall */
 @media(min-width:1001px){.brand-logo-grid{grid-template-columns:repeat(7,minmax(0,1fr))}}
+
+
+.brand-logo.defender-logo{background:#020611;padding:14px}
+.brand-logo.defender-logo img{max-height:108px;filter:none;mix-blend-mode:normal;opacity:1}
+.brand-logo.defender-logo:hover img{opacity:1}
