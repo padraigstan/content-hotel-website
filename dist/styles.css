@@ -70,3 +70,19 @@ body.viewer-open{overflow:hidden}
 @keyframes suiteIn{from{opacity:0}to{opacity:1}}
 @media(max-width:700px){.suite-shell{grid-template-rows:68px minmax(0,1fr) 76px;padding:0 16px}.suite-header>div span{display:none}.suite-stage{display:block;position:relative;padding:14px 0}.suite-stage>img{width:100%;height:100%;object-fit:contain}.suite-nav{position:absolute;z-index:2;top:0;width:52px;padding:0;justify-content:center}.suite-prev{left:-10px}.suite-next{right:-10px}.suite-nav small{display:none}.suite-nav span{font-size:2.6rem;text-shadow:0 2px 15px #000}.suite-footer strong{font-size:.76rem}.suite-footer>div{max-width:78%}}
 @media(prefers-reduced-motion:reduce){.viewing-suite[open]{animation:none}}
+
+.brand-trust{padding:96px 3.2vw 110px;background:var(--white);color:var(--ink);border-bottom:1px solid rgba(28,27,25,.18)}
+.brand-trust-head{display:grid;grid-template-columns:1fr minmax(260px,42vw);gap:44px;align-items:end;margin-bottom:54px}
+.brand-trust h2{font-family:'Archivo Black',Arial Black,sans-serif;font-size:clamp(3rem,6vw,6.4rem);line-height:.86;letter-spacing:-.045em;margin:.22em 0 0;text-transform:uppercase}
+.brand-trust h2 span{color:var(--orange)}
+.brand-logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid rgba(28,27,25,.18);border-left:1px solid rgba(28,27,25,.18)}
+.brand-logo{min-height:138px;padding:26px 20px;border-right:1px solid rgba(28,27,25,.18);border-bottom:1px solid rgba(28,27,25,.18);display:flex;align-items:center;justify-content:center;text-align:center}
+.brand-logo img{display:block;max-width:100%;width:auto;max-height:62px;object-fit:contain;filter:grayscale(1) brightness(0);opacity:.64;transition:opacity .25s ease,transform .25s ease}
+.brand-logo:hover img{opacity:1;transform:scale(1.04)}
+.brand-wordmark{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1rem,1.55vw,1.45rem);font-weight:900;letter-spacing:.07em;color:var(--ink);opacity:.64;line-height:.9;transition:opacity .25s ease,transform .25s ease}
+.brand-wordmark:hover{opacity:1;transform:scale(1.04)}
+.brand-wordmark.score{font-style:italic;font-size:clamp(1.2rem,2vw,1.8rem)}
+.brand-wordmark.chateau{font-family:Georgia,serif;letter-spacing:.04em}.brand-wordmark.chateau span{font-size:.72em;letter-spacing:.18em}
+.brand-wordmark.fieldbar{font-weight:500;letter-spacing:.24em}
+@media(max-width:1000px){.brand-logo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.brand-trust{padding:76px 5vw 86px}.brand-trust-head{grid-template-columns:1fr;margin-bottom:36px}.brand-trust h2{font-size:clamp(2.8rem,13vw,4.8rem)}.brand-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-logo{min-height:112px;padding:22px 16px}.brand-logo img{max-height:50px}}
