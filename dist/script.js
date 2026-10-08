@@ -1,6 +1,12 @@
 const gallery=document.querySelector('.work-grid');
 document.querySelectorAll('.project:not([data-type="door54"])').forEach(project=>project.dataset.type='photography');
 const extraWork=[
+  {src:'assets/featured/featured-01.webp',type:'photography'},
+  {src:'assets/featured/featured-02.webp',type:'photography',layout:'wide'},
+  {src:'assets/featured/featured-03.webp',type:'photography',layout:'wide'},
+  {src:'assets/featured/featured-04.webp',type:'photography',layout:'tall'},
+  {src:'assets/featured/featured-05.webp',type:'photography',layout:'tall'},
+  {src:'assets/featured/featured-06.webp',type:'photography',layout:'wide'},
   {src:'assets/work/lyndon-martell.jpg',type:'photography'},
   {src:'assets/work/lyndon-4th-street.jpg',type:'photography'},
   {src:'assets/work/lyndon-redemption.jpg',type:'photography'},
@@ -11,7 +17,7 @@ const extraWork=[
 ];
 extraWork.forEach((item,index)=>{
   const figure=document.createElement('figure');
-  figure.className='project';
+  figure.className=`project${item.layout?` ${item.layout}`:''}`;
   figure.dataset.type=item.type;
   const image=document.createElement('img');
   image.src=item.src;
