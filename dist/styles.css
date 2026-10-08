@@ -96,7 +96,7 @@ body.viewer-open{overflow:hidden}
 .brand-logo:nth-child(4n+3){background:var(--stone)}
 .brand-logo:nth-child(4n){background:var(--ink)}
 .brand-logo img{filter:grayscale(1) contrast(1.16);mix-blend-mode:multiply;opacity:.9}
-.brand-logo:nth-child(4n+2) img,.brand-logo:nth-child(4n) img{filter:grayscale(1) brightness(0) invert(1);mix-blend-mode:screen;opacity:.94}
+.brand-logo:nth-child(4n+1) img,.brand-logo:nth-child(4n+2) img,.brand-logo:nth-child(4n) img{filter:grayscale(1) brightness(0) invert(1);mix-blend-mode:screen;opacity:.94}
 .brand-logo:nth-child(4n+1) .brand-wordmark,.brand-logo:nth-child(4n+2) .brand-wordmark,.brand-logo:nth-child(4n) .brand-wordmark{color:var(--white);opacity:.96}
 @media(max-width:1000px){.brand-logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.brand-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
