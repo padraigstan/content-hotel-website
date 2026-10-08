@@ -1,5 +1,12 @@
 const gallery=document.querySelector('.work-grid');
 document.querySelectorAll('.project:not([data-type="door54"])').forEach(project=>project.dataset.type='photography');
+const excludedGalleryImages=new Set([
+  'assets/work-expanded/lyndon-11.jpg',
+  'assets/cameron/cameron-057.webp',
+  'assets/cameron/cameron-072.webp',
+  'assets/cameron/cameron-083.webp',
+  'assets/cameron/cameron-084.webp'
+]);
 const extraWork=[
   {src:'assets/featured/featured-01.webp',type:'photography'},
   {src:'assets/featured/featured-02.webp',type:'photography',layout:'wide'},
@@ -14,7 +21,7 @@ const extraWork=[
   {src:'assets/work/lyndon-barista.jpg',type:'photography'},
   ...Array.from({length:12},(_,i)=>({src:`assets/work-expanded/lyndon-${String(i+1).padStart(2,'0')}.jpg`,type:'photography'})),
   ...Array.from({length:84},(_,i)=>({src:`assets/cameron/cameron-${String(i+1).padStart(3,'0')}.webp`,type:'photography'}))
-];
+].filter(item=>!excludedGalleryImages.has(item.src));
 extraWork.forEach((item,index)=>{
   const figure=document.createElement('figure');
   figure.className=`project${item.layout?` ${item.layout}`:''}`;
