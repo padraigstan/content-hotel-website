@@ -1,10 +1,7 @@
 const gallery=document.querySelector('.work-grid');
 document.querySelectorAll('.project:not([data-type="door54"])').forEach(project=>project.dataset.type='photography');
 const extraWork=[
-  {src:'assets/work/door-fieldbar-new-01.jpg',type:'door54'},
-  {src:'assets/work/door-fieldbar-new-02.jpg',type:'door54'},
   {src:'assets/work/door-fieldbar-new-03.jpg',type:'door54'},
-  {src:'assets/work/door-fieldbar-new-04.jpg',type:'door54'},
   {src:'assets/work/lyndon-martell.jpg',type:'photography'},
   {src:'assets/work/lyndon-4th-street.jpg',type:'photography'},
   {src:'assets/work/lyndon-redemption.jpg',type:'photography'},
