@@ -35,6 +35,35 @@ extraWork.forEach((item,index)=>{
   gallery.appendChild(figure);
 });
 
+const galleryBrand=figure=>{
+  const image=figure.querySelector('img');
+  const label=`${image?.alt||''} ${image?.getAttribute('src')||''}`.toLowerCase();
+  if(label.includes('under armour')) return 'under-armour';
+  if(label.includes('fieldbar')) return 'fieldbar';
+  if(label.includes("gordon")) return 'gordons';
+  if(label.includes('lexus')) return 'lexus';
+  if(label.includes('vietnam')) return 'vietnam';
+  if(label.includes('greece')) return 'greece';
+  return image?.getAttribute('src')||label;
+};
+const galleryRank=figure=>{
+  const source=figure.querySelector('img')?.getAttribute('src')||'';
+  let hash=2166136261;
+  for(let i=0;i<Math.min(source.length,320);i++){
+    hash^=source.charCodeAt(i);
+    hash=Math.imul(hash,16777619);
+  }
+  return hash>>>0;
+};
+const mixedProjects=[...gallery.querySelectorAll('.project')].sort((a,b)=>galleryRank(a)-galleryRank(b));
+for(let i=1;i<mixedProjects.length;i++){
+  if(galleryBrand(mixedProjects[i])===galleryBrand(mixedProjects[i-1])){
+    const swapIndex=mixedProjects.findIndex((candidate,index)=>index>i&&galleryBrand(candidate)!==galleryBrand(mixedProjects[i-1])&&(index===mixedProjects.length-1||galleryBrand(candidate)!==galleryBrand(mixedProjects[index+1])));
+    if(swapIndex>i) [mixedProjects[i],mixedProjects[swapIndex]]=[mixedProjects[swapIndex],mixedProjects[i]];
+  }
+}
+mixedProjects.forEach(project=>gallery.appendChild(project));
+
 const buttons=[...document.querySelectorAll('.filters button')];
 const projects=[...document.querySelectorAll('.project')];
 const reel=document.querySelector('.reel');
