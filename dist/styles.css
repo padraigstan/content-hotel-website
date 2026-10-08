@@ -109,3 +109,7 @@ body.viewer-open{overflow:hidden}
 .brand-logo.defender-logo{background:#020611;padding:14px}
 .brand-logo.defender-logo img{max-height:108px;filter:none;mix-blend-mode:normal;opacity:1}
 .brand-logo.defender-logo:hover img{opacity:1}
+
+
+.brand-logo.fitch-logo img{max-height:92px;filter:brightness(0) invert(1);mix-blend-mode:normal;opacity:1}
+.brand-logo.fitch-logo:hover img{opacity:1}
