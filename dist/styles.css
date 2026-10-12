@@ -113,3 +113,6 @@ body.viewer-open{overflow:hidden}
 
 .brand-logo.fitch-logo img{max-height:92px;filter:brightness(0) invert(1);mix-blend-mode:normal;opacity:1}
 .brand-logo.fitch-logo:hover img{opacity:1}
+
+/* Keep the hero cinematic while letting more of the film detail through. */
+.hero .shade{background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.56) 42%,rgba(0,0,0,.13) 78%),linear-gradient(0deg,rgba(0,0,0,.63),transparent 55%)}
