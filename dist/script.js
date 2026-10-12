@@ -69,12 +69,24 @@ const projects=[...document.querySelectorAll('.project')];
 const reel=document.querySelector('.reel');
 const reelVideo=reel?.querySelector('video');
 const reelPlay=reel?.querySelector('.reel-play');
+const reelEndcard=reel?.querySelector('.reel-endcard');
 reelPlay?.addEventListener('click',async()=>{
   reelVideo.muted=false;
   try{await reelVideo.play()}catch(error){reel.classList.remove('is-playing')}
 });
-reelVideo?.addEventListener('play',()=>reel.classList.add('is-playing'));
-reelVideo?.addEventListener('ended',()=>reel.classList.remove('is-playing'));
+reelEndcard?.addEventListener('click',async()=>{
+  reelVideo.currentTime=0;
+  reelVideo.muted=false;
+  try{await reelVideo.play()}catch(error){reel.classList.remove('is-playing')}
+});
+reelVideo?.addEventListener('play',()=>{
+  reel.classList.add('is-playing');
+  reel.classList.remove('is-finished');
+});
+reelVideo?.addEventListener('ended',()=>{
+  reel.classList.remove('is-playing');
+  reel.classList.add('is-finished');
+});
 projects.forEach(project=>{
   project.tabIndex=0;
   project.setAttribute('role','button');

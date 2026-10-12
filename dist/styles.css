@@ -116,3 +116,11 @@ body.viewer-open{overflow:hidden}
 
 /* Keep the hero cinematic while letting more of the film detail through. */
 .hero .shade{background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.56) 42%,rgba(0,0,0,.13) 78%),linear-gradient(0deg,rgba(0,0,0,.63),transparent 55%)}
+
+/* Branded showreel check-out card. */
+.reel-endcard{position:absolute;inset:0;border:0;background:var(--orange);color:var(--white);display:grid;place-content:center;justify-items:center;gap:22px;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .45s ease;text-transform:uppercase}
+.reel-endcard img{width:min(280px,42vw);max-height:54%;object-fit:contain}
+.reel-endcard span{font-size:.62rem;font-weight:800;letter-spacing:.12em;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:7px}
+.reel.is-finished .reel-endcard{opacity:1;visibility:visible;pointer-events:auto}
+.reel.is-finished .reel-play{opacity:0;pointer-events:none}
+@media(max-width:560px){.reel-endcard{gap:12px}.reel-endcard img{width:min(180px,44vw)}.reel-endcard span{font-size:.52rem}}
