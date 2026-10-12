@@ -67,6 +67,14 @@ mixedProjects.forEach(project=>gallery.appendChild(project));
 const buttons=[...document.querySelectorAll('.filters button')];
 const projects=[...document.querySelectorAll('.project')];
 const reel=document.querySelector('.reel');
+const reelVideo=reel?.querySelector('video');
+const reelPlay=reel?.querySelector('.reel-play');
+reelPlay?.addEventListener('click',async()=>{
+  reelVideo.muted=false;
+  try{await reelVideo.play()}catch(error){reel.classList.remove('is-playing')}
+});
+reelVideo?.addEventListener('play',()=>reel.classList.add('is-playing'));
+reelVideo?.addEventListener('ended',()=>reel.classList.remove('is-playing'));
 projects.forEach(project=>{
   project.tabIndex=0;
   project.setAttribute('role','button');
