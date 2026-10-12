@@ -93,6 +93,10 @@ reelVideo?.addEventListener('ended',()=>{
   reel.classList.remove('is-playing');
   reel.classList.add('is-finished');
 });
+const uaVideos=[...document.querySelectorAll('.ua-film video')];
+uaVideos.forEach(video=>video.addEventListener('play',()=>{
+  uaVideos.forEach(other=>{if(other!==video&&!other.paused) other.pause()});
+}));
 projects.forEach(project=>{
   project.tabIndex=0;
   project.setAttribute('role','button');
