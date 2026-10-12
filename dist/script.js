@@ -83,6 +83,12 @@ reelVideo?.addEventListener('play',()=>{
   reel.classList.add('is-playing');
   reel.classList.remove('is-finished');
 });
+reelVideo?.addEventListener('timeupdate',()=>{
+  if(!Number.isFinite(reelVideo.duration)) return;
+  const remaining=reelVideo.duration-reelVideo.currentTime;
+  if(remaining<=1.15) reel.classList.add('is-finished');
+  else reel.classList.remove('is-finished');
+});
 reelVideo?.addEventListener('ended',()=>{
   reel.classList.remove('is-playing');
   reel.classList.add('is-finished');

@@ -118,7 +118,7 @@ body.viewer-open{overflow:hidden}
 .hero .shade{background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.56) 42%,rgba(0,0,0,.13) 78%),linear-gradient(0deg,rgba(0,0,0,.63),transparent 55%)}
 
 /* Branded showreel check-out card. */
-.reel-endcard{position:absolute;inset:0;border:0;background:var(--orange);color:var(--white);display:grid;place-content:center;justify-items:center;gap:20px;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .45s ease;text-transform:uppercase}
+.reel-endcard{position:absolute;inset:0;border:0;background:var(--orange);color:var(--white);display:grid;place-content:center;justify-items:center;gap:20px;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .75s ease;text-transform:uppercase}
 .reel-key-card{width:min(460px,62vw);aspect-ratio:1.586/1;background:var(--stone);color:var(--ink);border-radius:22px;box-shadow:0 24px 50px rgba(0,0,0,.28);padding:24px 26px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-3deg);position:relative;overflow:hidden}
 .reel-key-card:after{content:'';position:absolute;width:220px;height:220px;border:48px solid var(--orange);border-radius:50%;right:-140px;top:58px}
 .reel-key-card img{position:relative;z-index:1;width:82%;height:auto;object-fit:contain;align-self:flex-start}
