@@ -129,3 +129,15 @@ body.viewer-open{overflow:hidden}
 .reel.is-finished .reel-endcard{opacity:1;visibility:visible;pointer-events:auto}
 .reel.is-finished .reel-play{opacity:0;pointer-events:none}
 @media(max-width:560px){.reel-endcard{gap:12px}.reel-key-card{width:min(280px,72vw);padding:15px 17px;border-radius:14px}.reel-key-card:after{width:130px;height:130px;border-width:30px;right:-85px;top:34px}.reel-key-top,.reel-key-bottom{font-size:.42rem}.reel-key-bottom small{font-size:.34rem}.reel-replay{font-size:.5rem}}
+
+/* Under Armour viewing room */
+.viewing-room{padding:105px 3.2vw 115px;background:var(--ink);color:var(--white)}
+.viewing-room-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);align-items:end;gap:6vw;margin-bottom:55px}
+.viewing-room h2{font-family:'Archivo Black',Arial Black,sans-serif;font-size:clamp(4rem,7.5vw,8.5rem);line-height:.8;letter-spacing:-.045em;margin:.22em 0 0;text-transform:uppercase}
+.viewing-room h2 span{color:var(--orange)}
+.viewing-room-intro>p{font-size:1.08rem;line-height:1.58;max-width:40ch;color:var(--stone)}
+.ua-deliverables{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}.ua-deliverables span{border:1px solid #565652;padding:8px 10px;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.ua-films{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}.ua-film{margin:0;background:#050505;position:relative}.ua-film-feature{grid-column:1/-1}.ua-film video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}.ua-film-meta{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--orange);font-size:.6rem;letter-spacing:.07em}.ua-film-meta b{font-family:'Archivo Black';font-size:.78rem}
+.ua-stills{columns:3;column-gap:8px}.ua-stills figure{margin:0 0 8px;break-inside:avoid;overflow:hidden;background:#080808}.ua-stills img{display:block;width:100%;height:auto;transition:transform .55s ease,opacity .3s ease}.ua-stills figure:hover img{transform:scale(1.025);opacity:.9}
+@media(max-width:850px){.viewing-room-head{grid-template-columns:1fr;gap:25px}.viewing-room h2{font-size:clamp(3.6rem,13vw,6.5rem)}.ua-stills{columns:2}}
+@media(max-width:560px){.viewing-room{padding:80px 5vw}.viewing-room h2{font-size:clamp(3.2rem,16vw,4.8rem)}.ua-films{grid-template-columns:1fr}.ua-film-feature{grid-column:auto}.ua-stills{columns:1}.ua-film-meta{padding:10px}.ua-deliverables{gap:5px}.ua-deliverables span{font-size:.52rem}}
