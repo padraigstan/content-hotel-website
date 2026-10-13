@@ -8,6 +8,12 @@ const excludedGalleryImages=new Set([
   'assets/cameron/cameron-084.webp'
 ]);
 const extraWork=[
+  {src:'assets/door54-new/aston-martin-rear.webp',type:'door54',alt:'Aston Martin campaign photography',layout:'wide'},
+  {src:'assets/door54-new/mount-nelson-pool.webp',type:'door54',alt:'Mount Nelson campaign photography',layout:'wide'},
+  {src:'assets/door54-new/fieldbar-cape-town.webp',type:'door54',alt:'Fieldbar Cape Town campaign photography'},
+  {src:'assets/door54-new/fieldbar-sunlight.webp',type:'door54',alt:'Fieldbar lifestyle campaign photography',layout:'tall'},
+  {src:'assets/door54-new/fieldbar-glassware.webp',type:'door54',alt:'Fieldbar glassware campaign photography'},
+  {src:'assets/door54-new/fieldbar-poolside.webp',type:'door54',alt:'Fieldbar poolside campaign photography',layout:'wide'},
   {src:'assets/featured/featured-01.webp',type:'photography'},
   {src:'assets/featured/featured-02.webp',type:'photography',layout:'wide'},
   {src:'assets/featured/featured-03.webp',type:'photography',layout:'wide'},
@@ -28,7 +34,7 @@ extraWork.forEach((item,index)=>{
   figure.dataset.type=item.type;
   const image=document.createElement('img');
   image.src=item.src;
-  image.alt=item.type==='door54'?'Campaign and film production work':'Commercial photography';
+  image.alt=item.alt||(item.type==='door54'?'Campaign and film production work':'Commercial photography');
   image.loading=index<6?'eager':'lazy';
   image.decoding='async';
   figure.appendChild(image);
@@ -40,6 +46,8 @@ const galleryBrand=figure=>{
   const label=`${image?.alt||''} ${image?.getAttribute('src')||''}`.toLowerCase();
   if(label.includes('under armour')) return 'under-armour';
   if(label.includes('fieldbar')) return 'fieldbar';
+  if(label.includes('aston martin')) return 'aston-martin';
+  if(label.includes('mount nelson')) return 'mount-nelson';
   if(label.includes("gordon")) return 'gordons';
   if(label.includes('lexus')) return 'lexus';
   if(label.includes('vietnam')) return 'vietnam';
