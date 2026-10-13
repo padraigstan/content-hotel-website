@@ -188,14 +188,27 @@ const enquiryForm=document.querySelector('#enquiry-form');
 const formStatus=document.querySelector('#form-status');
 const enquirySuccess=document.querySelector('#enquiry-success');
 const anotherEnquiry=document.querySelector('#another-enquiry');
+enquiryForm?.querySelectorAll('input[name="workType"]').forEach(input=>input.addEventListener('change',()=>{
+  if(enquiryForm.querySelector('input[name="workType"]:checked')) enquiryForm.querySelector('#work-selection-error').textContent='';
+}));
 enquiryForm?.addEventListener('submit',async event=>{
   event.preventDefault();
+  const selectedWork=[...enquiryForm.querySelectorAll('input[name="workType"]:checked')].map(input=>input.value);
+  const selectionError=enquiryForm.querySelector('#work-selection-error');
+  if(!selectedWork.length){
+    selectionError.textContent='Please choose at least one room.';
+    enquiryForm.querySelector('input[name="workType"]')?.focus();
+    return;
+  }
+  selectionError.textContent='';
   if(!enquiryForm.checkValidity()){
     enquiryForm.reportValidity();
     return;
   }
   const button=enquiryForm.querySelector('button[type="submit"]');
   const data=Object.fromEntries(new FormData(enquiryForm));
+  data.workNature=selectedWork.join(', ');
+  delete data.workType;
   button.disabled=true;
   button.innerHTML='Sending…';
   formStatus.textContent='';
@@ -214,7 +227,7 @@ enquiryForm?.addEventListener('submit',async event=>{
     formStatus.className='error';
   }finally{
     button.disabled=false;
-    button.innerHTML='Send enquiry <b>↗</b>';
+    button.innerHTML='Complete check-in <b>↗</b>';
   }
 });
 
