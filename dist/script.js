@@ -3,6 +3,7 @@ document.querySelectorAll('.project:not([data-type="door54"])').forEach(project=
 const excludedGalleryImages=new Set([
   'assets/work-expanded/lyndon-11.jpg',
   'assets/cameron/cameron-003.webp',
+  'assets/cameron/cameron-038.webp',
   'assets/cameron/cameron-057.webp',
   'assets/cameron/cameron-064.webp',
   'assets/cameron/cameron-072.webp',
