@@ -2,12 +2,17 @@ const gallery=document.querySelector('.work-grid');
 document.querySelectorAll('.project:not([data-type="door54"])').forEach(project=>project.dataset.type='photography');
 const excludedGalleryImages=new Set([
   'assets/work-expanded/lyndon-11.jpg',
+  'assets/cameron/cameron-003.webp',
   'assets/cameron/cameron-057.webp',
+  'assets/cameron/cameron-064.webp',
   'assets/cameron/cameron-072.webp',
   'assets/cameron/cameron-083.webp',
   'assets/cameron/cameron-084.webp'
 ]);
 const extraWork=[
+  {src:'assets/under-armour/ua-01.webp',type:'photography',alt:'Kevin Lerena for Under Armour',layout:'tall'},
+  {src:'assets/under-armour/ua-04.webp',type:'photography',alt:'Musa Keys for Under Armour',layout:'tall'},
+  {src:'assets/under-armour/ua-09.webp',type:'photography',alt:'Kevin Lerena ringside for Under Armour',layout:'tall'},
   {src:'assets/door54-new/aston-martin-rear.webp',type:'door54',alt:'Aston Martin campaign photography',layout:'wide'},
   {src:'assets/door54-new/mount-nelson-pool.webp',type:'door54',alt:'Mount Nelson campaign photography',layout:'wide'},
   {src:'assets/door54-new/fieldbar-cape-town.webp',type:'door54',alt:'Fieldbar Cape Town campaign photography'},
