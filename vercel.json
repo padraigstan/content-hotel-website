@@ -1,5 +1,19 @@
+valid
 {
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "content-hotel-website.vercel.app"
+        }
+      ],
+      "destination": "https://www.thecontenthotel.com/:path*",
+      "permanent": true
+    }
+  ]
 }
