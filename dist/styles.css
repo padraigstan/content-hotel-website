@@ -111,7 +111,8 @@ body.viewer-open{overflow:hidden}
 .brand-logo.defender-logo:hover img{opacity:1}
 
 
-.brand-logo.fitch-logo img{max-height:92px;filter:brightness(0) invert(1);mix-blend-mode:normal;opacity:1}
+.brand-logo.fitch-logo{background:var(--stone)}
+.brand-logo.fitch-logo img{max-height:92px;filter:grayscale(1) contrast(1.2);mix-blend-mode:multiply;opacity:1}
 .brand-logo.fitch-logo:hover img{opacity:1}
 
 /* Keep the hero cinematic while letting more of the film detail through. */
