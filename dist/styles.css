@@ -171,3 +171,13 @@ body.viewer-open{overflow:hidden}
 .manager-room{margin:0}.manager-copy h3{margin:90px 0 18px}.manager-copy>p:last-child{max-width:56ch}
 @media(max-width:900px){.manager-card,.manager-card:last-child{grid-template-columns:1fr;min-height:0}.manager-portrait.manager-collage{aspect-ratio:1/1;min-height:0;border-right:0;border-bottom:1px solid var(--ink)}.manager-copy{min-height:410px;padding:30px 26px 34px}.manager-copy h3{margin-top:55px}}
 @media(max-width:560px){.management-grid{gap:16px}.manager-portrait.manager-collage{padding:8px 8px 40px;gap:5px}.manager-portrait.manager-collage::after{bottom:12px;font-size:.47rem}.manager-copy{min-height:380px;padding:24px 20px 28px}}
+
+
+/* Compact side-by-side management profiles */
+.management-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.manager-card,.manager-card:last-child{display:flex;flex-direction:column;min-height:0}
+.manager-portrait.manager-collage{flex:0 0 auto;width:min(68%,340px);aspect-ratio:1/1;min-height:0;margin:30px auto 0;padding:10px 10px 42px;gap:5px;border:1px solid var(--ink)}
+.manager-portrait.manager-collage::after{bottom:12px;font-size:.48rem}
+.manager-copy{min-height:440px;padding:30px 34px 38px;justify-content:flex-start}
+.manager-copy h3{margin:54px 0 18px;font-size:clamp(2.5rem,4.3vw,4.8rem)}
+@media(max-width:900px){.management-grid{grid-template-columns:1fr}.manager-portrait.manager-collage{width:min(74%,420px);margin-top:24px}.manager-copy{min-height:0;padding:28px 24px 36px}.manager-copy h3{margin-top:45px}}
