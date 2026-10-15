@@ -280,7 +280,7 @@ if(uaStills){
   };
   const goToUaSlide=index=>{
     const target=Math.max(0,Math.min(uaSlides.length-1,index));
-    uaSlides[target].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+    uaStills.scrollTo({left:uaSlides[target].offsetLeft-uaStills.offsetLeft,behavior:'smooth'});
   };
   uaPrev.addEventListener('click',()=>goToUaSlide(uaIndex-1));
   uaNext.addEventListener('click',()=>goToUaSlide(uaIndex+1));
@@ -319,7 +319,7 @@ if(gallery){
   const goToWorkSlide=index=>{
     const slides=visibleWork();
     const target=Math.max(0,Math.min(slides.length-1,index));
-    slides[target]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+    if(slides[target]) gallery.scrollTo({left:slides[target].offsetLeft-gallery.offsetLeft,behavior:'smooth'});
   };
   workPrev.addEventListener('click',()=>goToWorkSlide(workIndex-1));
   workNext.addEventListener('click',()=>goToWorkSlide(workIndex+1));
