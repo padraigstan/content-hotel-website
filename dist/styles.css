@@ -352,3 +352,16 @@ body.viewer-open{overflow:hidden}
   }
   .ua-carousel-actions button:disabled{opacity:.3}
 }
+
+
+/* Wider desktop management portraits */
+@media(min-width:901px){
+  .manager-card,.manager-card:last-child{
+    grid-template-columns:minmax(250px,48%) minmax(0,1fr);
+  }
+  .manager-copy{padding-left:24px;padding-right:24px}
+  .manager-portrait.manager-single img{
+    object-fit:cover;
+    object-position:50% 50%;
+  }
+}
