@@ -238,3 +238,18 @@ anotherEnquiry?.addEventListener('click',()=>{
   formStatus.className='';
   enquiryForm.querySelector('input[name="firstName"]').focus();
 });
+
+// The hero film is stored in deployment-safe chunks and assembled once in the browser.
+const uaHero=document.querySelector('[data-ua-hero]');
+if(uaHero){
+  const uaHeroParts=Array.from({length:12},(_,index)=>`assets/under-armour/ua-heatgear-ss26-hero.part-${String(index+1).padStart(2,'0')}`);
+  Promise.all(uaHeroParts.map(path=>fetch(path).then(response=>{
+    if(!response.ok) throw new Error(`Unable to load ${path}`);
+    return response.arrayBuffer();
+  }))).then(parts=>{
+    uaHero.src=URL.createObjectURL(new Blob(parts,{type:'video/mp4'}));
+    uaHero.load();
+  }).catch(()=>{
+    uaHero.setAttribute('aria-label','Under Armour hero film is temporarily unavailable');
+  });
+}
