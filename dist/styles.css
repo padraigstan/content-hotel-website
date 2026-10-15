@@ -460,3 +460,17 @@ body.viewer-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .work-carousel-actions button,.ua-carousel-actions button{animation:none!important}
 }
+
+
+/* Contain mobile carousels within the viewport */
+@media(max-width:560px){
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  .work,.viewing-room{max-width:100%;overflow:hidden}
+  .work-grid,.ua-stills{
+    width:100%;
+    max-width:100%;
+    margin-right:0;
+    padding-right:16%;
+    contain:inline-size;
+  }
+}
