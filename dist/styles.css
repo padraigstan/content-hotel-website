@@ -301,3 +301,54 @@ body.viewer-open{overflow:hidden}
   .ua-film:not(.ua-film-feature) .ua-film-meta span{font-size:.43rem}
   .ua-film:not(.ua-film-feature) .ua-film-meta b{font-size:.52rem;line-height:1.05}
 }
+
+
+.ua-carousel-controls{display:none}
+/* Mobile Under Armour stills carousel */
+@media(max-width:560px){
+  .ua-stills{
+    display:flex;
+    columns:auto;
+    gap:10px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    margin:0 -5vw 0 0;
+    padding:0 13vw 4px 0;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:0;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .ua-stills::-webkit-scrollbar{display:none}
+  .ua-stills figure{
+    flex:0 0 84%;
+    width:84%;
+    margin:0;
+    aspect-ratio:4/5;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    overflow:hidden;
+  }
+  .ua-stills figure img{width:100%;height:100%;object-fit:cover}
+  .ua-carousel-controls{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:14px;
+    border-top:1px solid var(--ink);
+    padding-top:12px;
+  }
+  .ua-carousel-count{font-family:'Archivo Black',Arial Black,sans-serif;font-size:.72rem;letter-spacing:.06em}
+  .ua-carousel-actions{display:flex;gap:6px}
+  .ua-carousel-actions button{
+    width:42px;
+    height:38px;
+    border:1px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    font-size:1rem;
+    cursor:pointer;
+  }
+  .ua-carousel-actions button:disabled{opacity:.3}
+}
