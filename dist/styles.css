@@ -418,3 +418,45 @@ body.viewer-open{overflow:hidden}
   }
   .work-carousel-actions button:disabled{opacity:.3}
 }
+
+
+/* Explicit mobile carousel swipe cue */
+@media(max-width:560px){
+  .work-grid,.ua-stills{padding-right:20vw}
+  .work-carousel-controls,.ua-carousel-controls{
+    margin-top:10px;
+    padding:10px 11px;
+    border-top:0;
+    background:var(--orange);
+    color:var(--white);
+  }
+  .work-carousel-count,.ua-carousel-count{
+    display:grid;
+    gap:2px;
+    color:var(--white);
+  }
+  .work-carousel-count::before,.ua-carousel-count::before{
+    content:'SWIPE TO EXPLORE  →';
+    font-family:Inter,Arial,sans-serif;
+    font-size:.58rem;
+    font-weight:800;
+    letter-spacing:.08em;
+  }
+  .work-carousel-actions button,.ua-carousel-actions button{
+    width:46px;
+    height:42px;
+    border-color:var(--white);
+    color:var(--white);
+    background:rgba(17,17,15,.16);
+    font-size:1.2rem;
+    font-weight:800;
+  }
+  .work-carousel-actions button:not(:disabled):last-child,
+  .ua-carousel-actions button:not(:disabled):last-child{
+    animation:carousel-cue 1.4s ease-in-out 2;
+  }
+}
+@keyframes carousel-cue{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){
+  .work-carousel-actions button,.ua-carousel-actions button{animation:none!important}
+}
