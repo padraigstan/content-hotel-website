@@ -291,3 +291,47 @@ if(uaStills){
   window.addEventListener('resize',updateUaCarousel,{passive:true});
   updateUaCarousel();
 }
+
+
+// Mobile selected-work gallery carousel
+if(gallery){
+  const workControls=document.createElement('div');
+  workControls.className='work-carousel-controls';
+  workControls.setAttribute('aria-label','Selected work gallery controls');
+  workControls.innerHTML='<span class="work-carousel-count" aria-live="polite"></span><span class="work-carousel-actions"><button type="button" data-work-prev aria-label="Previous image">←</button><button type="button" data-work-next aria-label="Next image">→</button></span>';
+  gallery.after(workControls);
+  const workCount=workControls.querySelector('.work-carousel-count');
+  const workPrev=workControls.querySelector('[data-work-prev]');
+  const workNext=workControls.querySelector('[data-work-next]');
+  let workIndex=0;
+  let workFrame;
+  const visibleWork=()=>projects.filter(project=>!project.classList.contains('hidden'));
+  const updateWorkCarousel=()=>{
+    const slides=visibleWork();
+    const first=slides[0];
+    if(!first){workCount.textContent='00 / 00';return;}
+    const step=first.getBoundingClientRect().width+10;
+    workIndex=Math.max(0,Math.min(slides.length-1,Math.round(gallery.scrollLeft/step)));
+    workCount.textContent=String(workIndex+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    workPrev.disabled=workIndex===0;
+    workNext.disabled=workIndex===slides.length-1;
+  };
+  const goToWorkSlide=index=>{
+    const slides=visibleWork();
+    const target=Math.max(0,Math.min(slides.length-1,index));
+    slides[target]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+  };
+  workPrev.addEventListener('click',()=>goToWorkSlide(workIndex-1));
+  workNext.addEventListener('click',()=>goToWorkSlide(workIndex+1));
+  gallery.addEventListener('scroll',()=>{
+    cancelAnimationFrame(workFrame);
+    workFrame=requestAnimationFrame(updateWorkCarousel);
+  },{passive:true});
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    gallery.scrollTo({left:0,behavior:'auto'});
+    workIndex=0;
+    requestAnimationFrame(updateWorkCarousel);
+  }));
+  window.addEventListener('resize',updateWorkCarousel,{passive:true});
+  updateWorkCarousel();
+}
