@@ -253,3 +253,41 @@ if(uaHero){
     uaHero.setAttribute('aria-label','Under Armour hero film is temporarily unavailable');
   });
 }
+
+
+// Mobile Under Armour stills carousel
+const uaStills=document.querySelector('.ua-stills');
+if(uaStills){
+  const uaSlides=[...uaStills.querySelectorAll('figure')];
+  const uaControls=document.createElement('div');
+  uaControls.className='ua-carousel-controls';
+  uaControls.setAttribute('aria-label','Under Armour gallery controls');
+  uaControls.innerHTML='<span class="ua-carousel-count" aria-live="polite">01 / '+String(uaSlides.length).padStart(2,'0')+'</span><span class="ua-carousel-actions"><button type="button" data-ua-prev aria-label="Previous image">←</button><button type="button" data-ua-next aria-label="Next image">→</button></span>';
+  uaStills.after(uaControls);
+  const uaCount=uaControls.querySelector('.ua-carousel-count');
+  const uaPrev=uaControls.querySelector('[data-ua-prev]');
+  const uaNext=uaControls.querySelector('[data-ua-next]');
+  let uaIndex=0;
+  let uaFrame;
+  const updateUaCarousel=()=>{
+    const first=uaSlides[0];
+    if(!first) return;
+    const step=first.getBoundingClientRect().width+10;
+    uaIndex=Math.max(0,Math.min(uaSlides.length-1,Math.round(uaStills.scrollLeft/step)));
+    uaCount.textContent=String(uaIndex+1).padStart(2,'0')+' / '+String(uaSlides.length).padStart(2,'0');
+    uaPrev.disabled=uaIndex===0;
+    uaNext.disabled=uaIndex===uaSlides.length-1;
+  };
+  const goToUaSlide=index=>{
+    const target=Math.max(0,Math.min(uaSlides.length-1,index));
+    uaSlides[target].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+  };
+  uaPrev.addEventListener('click',()=>goToUaSlide(uaIndex-1));
+  uaNext.addEventListener('click',()=>goToUaSlide(uaIndex+1));
+  uaStills.addEventListener('scroll',()=>{
+    cancelAnimationFrame(uaFrame);
+    uaFrame=requestAnimationFrame(updateUaCarousel);
+  },{passive:true});
+  window.addEventListener('resize',updateUaCarousel,{passive:true});
+  updateUaCarousel();
+}
