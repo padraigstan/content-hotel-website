@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 120" role="img" aria-labelledby="title desc">
+<title id="title">Abstract Ha'penny Bridge</title><desc id="desc">Geometric line illustration of Dublin's Ha'penny Bridge</desc>
+<g fill="none" stroke="#1c1b19" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M10 93H210"/><path d="M18 82C54 18 166 18 202 82"/><path d="M23 82H197"/>
+<path d="M42 62V82M68 44V82M96 35V82M124 35V82M152 44V82M178 62V82"/>
+<path d="M22 82L43 61 68 44 96 35 124 35 152 44 178 62 198 82"/>
+<path d="M22 82L68 44 124 35 178 62M43 61L96 35 152 44 198 82"/>
+</g>
+<g fill="#d94b32"><circle cx="18" cy="26" r="6"/><circle cx="202" cy="26" r="6"/></g>
+<g stroke="#1c1b19" stroke-width="5"><path d="M18 32V82M202 32V82"/></g>
+</svg>
