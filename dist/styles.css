@@ -493,10 +493,3 @@ body.viewer-open{overflow:hidden}
   .hotel-operations-lockup{padding:16px 22px;line-height:1.35}
 }
 
-.hotel-city{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin:auto 0 18px}
-.hotel-city h3{margin:0}
-.hotel-city img{display:block;width:clamp(88px,12vw,170px);height:auto;flex:0 0 auto}
-@media(max-width:700px){
-  .hotel-city{gap:16px}
-  .hotel-city img{width:clamp(86px,29vw,130px)}
-}
