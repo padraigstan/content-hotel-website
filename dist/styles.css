@@ -474,3 +474,21 @@ body.viewer-open{overflow:hidden}
     contain:inline-size;
   }
 }
+
+
+/* Front and back of house operating model */
+.hotel-operations{display:grid;grid-template-columns:1fr 1fr;margin:0 0 46px;border:1px solid var(--ink);background:var(--white);color:var(--ink)}
+.hotel-department{padding:30px 32px 34px;min-height:245px;display:flex;flex-direction:column}
+.hotel-department:first-child{border-right:1px solid var(--ink)}
+.hotel-department-back{background:var(--ink);color:var(--white)}
+.hotel-department>span{font-size:.62rem;font-weight:800;letter-spacing:.09em}
+.hotel-department h3{font-family:'Archivo Black',Arial Black,sans-serif;font-size:clamp(2.8rem,5.4vw,5.7rem);line-height:.84;letter-spacing:-.045em;margin:auto 0 18px}
+.hotel-department p{font-size:.92rem;line-height:1.55;max-width:54ch;margin:0}
+.hotel-operations-lockup{grid-column:1/-1;margin:0;padding:17px 32px;background:var(--blue);color:var(--white);font-family:'Archivo Black',Arial Black,sans-serif;font-size:clamp(.78rem,1.2vw,1rem);letter-spacing:.025em;text-transform:uppercase}
+@media(max-width:700px){
+  .hotel-operations{grid-template-columns:1fr;margin-bottom:30px}
+  .hotel-department{min-height:225px;padding:25px 22px 28px}
+  .hotel-department:first-child{border-right:0;border-bottom:1px solid var(--ink)}
+  .hotel-department h3{font-size:clamp(3rem,15vw,4.4rem)}
+  .hotel-operations-lockup{padding:16px 22px;line-height:1.35}
+}
